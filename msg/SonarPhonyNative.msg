@@ -7,6 +7,9 @@
 #
 ###########################################################################
 
+# Header
+std_msgs/Header header
+
 # Minimum range of watercolumn data (meters)
 float32 min_range
 # Maximum range of watercolumn data (meters)

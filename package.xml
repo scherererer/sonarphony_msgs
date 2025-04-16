@@ -7,6 +7,8 @@
   <maintainer email="michael.p.scherer@ieee.org">Michael P. Scherer</maintainer>
   <license>GPL-3.0-only</license>
 
+  <depend>std_msgs</depend>
+
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
