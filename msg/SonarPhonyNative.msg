@@ -27,5 +27,11 @@ float32 battery_voltage
 # Battery level (0-100%)
 float32 battery_level
 
+# Center frequency in Hz
+float32 frequency
+
+# Beam width in radians
+float32 beam_width
+
 # Watercolumn data
 uint8[] data
