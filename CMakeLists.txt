@@ -12,6 +12,8 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SonarPhonyNative.msg"
+  "srv/SetSonarPhonyFrequency.srv"
+  "srv/SetSonarPhonyRange.srv"
   DEPENDENCIES std_msgs
 )
 

@@ -17,38 +17,33 @@
 ###########################################################################
 ###########################################################################
 #
-# Native ping data from the SonarPhony
+# Changes the center frequency of the SonarPhony
 #
 # This message may be subject to change as new fields are discovered
 # Stable code should use standardized marine_acoustic_msgs
 #
 ###########################################################################
 
-# Header
-std_msgs/Header header
+uint8 FREQ_80KHZ = 1
+uint8 FREQ_125KHZ = 2
+uint8 FREQ_200KHZ = 4
 
-# Minimum range of watercolumn data (meters)
-float32 min_range
-# Maximum range of watercolumn data (meters)
-float32 max_range
-
-# Waterdepth / range to detected hard bottom (meters)
-float32 range
-
-# Temperature in degrees C
-float32 temperature
-
-# Battery voltage in volts
-float32 battery_voltage
-
-# Battery level (0-100%)
-float32 battery_level
-
-# Center frequency in Hz
-float32 frequency
-
-# Beam width in radians
-float32 beam_width
-
-# Watercolumn data
-uint8[] data
+# Frequency selection, see FREQ_* enumeration above
+#
+# Frequency options can be set as flags, e.g. FREQ_80KHZ | FREQ_200KHZ will
+# rotate between those two frequencies, using the period as the number of
+# seconds to stay on each frequency. A period of 0 will just remain on the
+# lowest order frequency forever.
+#
+# Example: frequency := FREQ_80KHZ | FREQ_200KHZ = 0x5; period := 0.2;
+# Result: Samples for 200ms at 80kHz, then 200ms at 200kHz, then back to 80
+uint8 frequency
+# Period of seconds to stay on each frequency.
+#
+# NOTE: The number of pings per period is not guaranteed.
+# NOTE: Setting too small of a period may result in inconsistent results.
+# Anything less than 0.1 is not recommended.
+float32 period
+---
+bool success # Was the command successful?
+string message # Message if applicable
